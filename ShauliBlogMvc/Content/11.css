@@ -61,7 +61,7 @@ nav {
     position: absolute;
     left: 0;
     width: 100%;
-    background: url("images/nav_background.png");
+    background: url("../images/nav_background.png");
     box-sizing: content-box;
 }
 
@@ -205,6 +205,7 @@ label {
 
 #content {
     display: table;
+    min-height:600px;
 }
 
 #mainContent {
@@ -218,6 +219,8 @@ aside {
     width: 300px;
     background: linear-gradient(to right, #d7d7d7,#ebe9e9, #e8e1e1);
 }
+
+
 
 
     /*------------------------------

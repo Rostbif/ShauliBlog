@@ -13,21 +13,24 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="header-container">
             <h1 class="header-title">Ha Blog Shel Shauli</h1>
             <audio muted autoplay controls>
-                <source src="../music/02 - Birds.mp3" type="audio/mp3" />
+                <source src="~/music/02 - Birds.mp3" type="audio/mp3" />
                 Your browser does not support the audio tag.
             </audio>
         </div>
     </header>
+
+    <!-- Nav -->
     <nav>
         <!-- Navigation -->
         <ul>
-            <li class="selected"><a href="#"> Blog </a></li>
+            <li class="selected">@Html.ActionLink("Blog", "Index", "Blog")</li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Archives</a></li>
+            <li>@Html.ActionLink("Fan Club", "Index", "Fans")</li>
             <li><a href="#">Contact</a></li>
             <li>
                 <div>
@@ -40,6 +43,8 @@
             </li>
         </ul>
     </nav>
+
+    <!-- Intro -->
     <section id="intro">
         <!-- Introduction -->
 
@@ -47,32 +52,77 @@
             <h2>Do you have questions for me?</h2>
         </header>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
-        <img src="images/intro_shauli.png" alt="Shauli" />
+        <img src="~/images/intro_shauli.png" alt="Shauli" />
     </section>
 
-    <h1> Search	</h1>
-    <div class="searchContainer">
-        <form class="searchBar">
-            <div class="searchBar">
-                <label> Date:</label>
-                <input type="date" placeholder="Choose date..." />
-                <label> Author Name: </label>
-                <input type="text" placeholder="insert author name" />
-                <label> Email: </label>
-                <input type="email" placeholder="insert your email..." />
-                <label> Words From post: </label>
-                <input type="text" placeholder="insert words from the post" />
-                <label> Minimal Comments: </label>
-                <input type="range" min="0" max="10" />
-                <input type="submit" value="search" />
-            </div>
-        </form>
+    <!-- Content -->
+    <div id="content">
+        
+        <div id="mainContent">
+            @RenderBody()
+        </div>
 
+        <!-- aside -->
+        <aside>
+            <section>
+                <header>
+                    <h3>Categories</h3>
+                </header>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Sit amet consectetur</a></li>
+                    <li><a href="#">Adipisicing elit sed</a></li>
+                </ul>
+            </section>
+            <section>
+                <header>
+                    <h3>Archives</h3>
+                </header>
+                <ul>
+                    <li><a href="#">December 2008</a></li>
+                    <li><a href="#">January 2009</a></li>
+                    <li><a href="#">February 2009</a></li>
+                    <li><a href="#">March 2009</a></li>
+                </ul>
+            </section>
+        </aside>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <div>
+            <section id="about">
+                <header>
+                    <h3>About</h3>
+                </header>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut la</p>
+            </section>
+            <section id="blogroll">
+                <header>
+                    <h3>Blogroll</h3>
+                </header>
+                <ul>
+                    <li><a href="#">NETTUTS+</a></li>
+                    <li><a href="#">FreelanceSwitch</a></li>
+                </ul>
+            </section>
+            <section id="popular">
+                <header>
+                    <h3>Popular</h3>
+                </header>
+                <ul>
+                    <li><a href="#">This is the title of a blog post</a></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><a href="#">Consectetur adipisicing elit, sed do eiusmod</a></li>
+                </ul>
+            </section>
+        </div>
+    </footer>
 
-    <div>
-        @RenderBody()
-    </div>
+    <!-- Scripts -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
 </body>
 </html>
