@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Shauli Blog</title>
+
+    @{
+        // check the BundleConfig.cs to see which files it refer
+    } 
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="header-title">Ha Blog Shel Shauli</h1>
+            <audio muted autoplay controls>
+                <source src="../music/02 - Birds.mp3" type="audio/mp3" />
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+    </header>
+    <nav>
+        <!-- Navigation -->
+        <ul>
+            <li class="selected"><a href="#"> Blog </a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Archives</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+                <div>
+                    <a href="#" class="rss">
+                        <img src=http://www.ashlylorenzana.com/wp-content/uploads/2013/12/12065637851779660844SRD_RSS_Logo.svg_.hi_.png
+                             width="20" height="20">
+                        Subscribe via. RSS
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <section id="intro">
+        <!-- Introduction -->
+
+        <header>
+            <h2>Do you have questions for me?</h2>
+        </header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+        <img src="images/intro_shauli.png" alt="Shauli" />
+    </section>
+
+    <h1> Search	</h1>
+    <div class="searchContainer">
+        <form class="searchBar">
+            <div class="searchBar">
+                <label> Date:</label>
+                <input type="date" placeholder="Choose date..." />
+                <label> Author Name: </label>
+                <input type="text" placeholder="insert author name" />
+                <label> Email: </label>
+                <input type="email" placeholder="insert your email..." />
+                <label> Words From post: </label>
+                <input type="text" placeholder="insert words from the post" />
+                <label> Minimal Comments: </label>
+                <input type="range" min="0" max="10" />
+                <input type="submit" value="search" />
+            </div>
+        </form>
+
+    </div>
+
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
