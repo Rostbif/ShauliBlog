@@ -15,6 +15,6 @@ namespace ShauliBlogMvc.Models
         public string Content { get; set; }
         public byte[] Image { get; set;}
         public byte[] video { get; set; }
-        public List<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
