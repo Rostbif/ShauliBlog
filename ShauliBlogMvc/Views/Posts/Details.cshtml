@@ -1,0 +1,117 @@
+﻿@model ShauliBlogMvc.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteOfAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteOfAuthor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublishDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+            
+        </dt>
+
+        <dd>
+            @{
+                if (Model.Image != null)
+                {
+                    string imageBase64 = Convert.ToBase64String(Model.Image);
+                    string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                    <img src="@imageSrc" width="100" height="100" alt="Image" />
+                }
+
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Video)
+        </dt>
+
+        <dd>
+            @{
+                if (Model.Video != null)
+                {
+
+
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th> Id </th>
+                    <th> Title </th>
+                    <th> Author Name </th>
+                    <th> Site Of Author </th>
+                    <th> content </th>
+                </tr>
+                @foreach (var item in Model.Comments)
+                {
+                    <tr>
+                        <td> @Html.DisplayFor(modelItem => item.ID) </td> 
+                        <td> @Html.DisplayFor(modelItem => item.Title) </td> 
+                        <td> @Html.DisplayFor(modelItem => item.AuthorName) </td> 
+                        <td> @Html.DisplayFor(modelItem => item.SiteOfAuthor) </td> 
+                        <td> @Html.DisplayFor(modelItem => item.Content) </td> 
+                    </tr>
+                }
+
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -64,6 +64,6 @@ C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\bin
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.csprojResolveAssemblyReference.cache
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.dll
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.pdb
+C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.csprojResolveAssemblyReference.cache

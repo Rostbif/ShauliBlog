@@ -14,7 +14,7 @@ namespace ShauliBlogMvc.Models
         public DateTime PublishDate { get; set; }
         public string Content { get; set; }
         public byte[] Image { get; set;}
-        public byte[] video { get; set; }
+        public byte[] Video { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
     }
 }
