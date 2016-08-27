@@ -48,8 +48,8 @@ namespace ShauliBlogMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Title,Author,SiteOfAuthor,PublishDate,Content")] Post post,
-            HttpPostedFileBase image 
-            //HttpPostedFileBase videoName
+            HttpPostedFileBase image ,
+            HttpPostedFileBase video
             )
         {
             try
@@ -58,12 +58,6 @@ namespace ShauliBlogMvc.Controllers
                 {
                     if( image != null && image.ContentLength > 0)
                     {
-                        //var imageFile = new File()
-                        //{
-                        //    FileName = System.IO.Path.GetFileName(image.FileName),
-                        //    FileType = FileType.Image,
-                        //    ContentType = image.ContentType
-                        //};
                         byte[] imageFile;
 
                         using (var reader = new System.IO.BinaryReader(image.InputStream))
@@ -74,24 +68,17 @@ namespace ShauliBlogMvc.Controllers
                         post.Image = imageFile;
                     }
 
-                    //if (videoName != null && videoName.ContentLength > 0)
-                    //{
-                        //var videoFile = new File()
-                        //{
-                        //    FileName = System.IO.Path.GetFileName(video.FileName),
-                        //    FileType = FileType.Video,
-                        //    ContentType = video.ContentType
-                        //};
+                    if (video != null && video.ContentLength > 0)
+                    {
+                        byte[] videoFile;
 
-                    //    byte[] videoFile;
+                        using (var reader = new System.IO.BinaryReader(video.InputStream))
+                        {
+                            videoFile = reader.ReadBytes(video.ContentLength);
+                        }
 
-                    //    using (var reader = new System.IO.BinaryReader(videoName.InputStream))
-                    //    {
-                    //        videoFile = reader.ReadBytes(videoName.ContentLength);
-                    //    }
-
-                    //    post.Video = videoFile;
-                    //}
+                        post.Video = videoFile;
+                    }
 
                     db.Posts.Add(post);
                     db.SaveChanges();

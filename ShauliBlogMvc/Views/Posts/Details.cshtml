@@ -76,8 +76,13 @@
             @{
                 if (Model.Video != null)
                 {
-
-
+                    string videoBase64 = Convert.ToBase64String(Model.Video);
+                    string videoSrc = string.Format("data:image/gif;base64,{0}", videoBase64);
+                    <video  width="100" height="100" alt="Image" controls>
+                        <source src="@videoSrc" type="video/mp4" />
+                        <source src="@videoSrc" type="video/ogg" />
+                        Your browser doesnt support the video tag of html5
+                    </video>
                 }
             }
         </dd>
