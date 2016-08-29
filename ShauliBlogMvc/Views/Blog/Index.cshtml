@@ -5,35 +5,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2> Blog </h2>
 
 
-<h2>Blog</h2>
+<!-- Search -->
+<section>
+    <h1> Search	</h1>
+    <div class="searchContainer">
+        <form class="searchBar">
+            <div class="searchBar">
+                <label> Date:</label>
+                <input type="date" placeholder="Choose date..." />
+                <label> Author Name: </label>
+                <input type="text" placeholder="insert author name" />
+                <label> Email: </label>
+                <input type="email" placeholder="insert your email..." />
+                <label> Words From post: </label>
+                <input type="text" placeholder="insert words from the post" />
+                <label> Minimal Comments: </label>
+                <input type="range" min="0" max="10" />
+                <input type="submit" value="search" />
+            </div>
+        </form>
 
+    </div>
+</section>
 
-<ul>
-    @foreach (var item in Model)
-    {
-        <li>
-            <div>
-                <h3>
+@foreach (var item in Model)
+{
+    
+        var commentNum = "comments" + item.ID;
+    
+
+    <div>
+
+        <section>
+            <article class="blogPost">
+                <header>
+                    <h2> @item.Title </h2>
+                    <p>Posted on <time datetime="@item.PublishDate">@item.PublishDate</time> by <a href="#">@item.Author</a> - <a href="#@commentNum">@item.Comments.Count comments</a></p>
+                </header>
+                <div>
                     
-                    @Html.ActionLink(item.Title ?? "No Title", "Details", "Posts", new { id = item.ID }, null);
-                </h3>
+                    <p> @item.Content </p>
 
-                <div>
-                    @Html.DisplayFor(modelItem => item.Author),
-                    @Html.DisplayFor(modelItem => item.PublishDate)
-                </div>
-
-
-                <div>
-                    @Html.DisplayFor(modelItem => item.SiteOfAuthor)
-                </div>
-
-                <div>
-                    @Html.DisplayFor(modelItem => item.Content)
-                </div>
-                <div>
                     @{
                         if (item.Image != null)
                         {
@@ -43,8 +58,9 @@
                         }
 
                     }
-                </div>
-                <div>
+
+                    
+
                     @{
                         if (item.Video != null)
                         {
@@ -59,7 +75,55 @@
                     }
 
                 </div>
-            </div>
-        </li>
-                        }
-</ul>
+            </article>
+        </section>
+        
+
+        <section id="@commentNum">
+            <h3>Comments</h3>
+            @{
+                foreach (var comment in item.Comments)
+                {
+                    <article>
+                        <header>
+                            <a href="@comment.SiteOfAuthor">@comment.AuthorName</a> 
+                        </header>
+                        <p> @comment.Content </p>
+                    </article>
+                }
+            }
+            
+        </section>
+        <form action="addComment" method="post">
+            <h3>Post a comment</h3>
+
+            <input type="hidden" name="postId" value="@item.ID" />
+
+
+            <p>
+                <label for="Title">Title</label>
+                <input name="title" id="title" type="text" required />
+            </p>
+
+            <p>
+                <label for="authorName">Author Name</label>
+                <input name="authorName" id="authorName" type="text" required />
+            </p>
+            
+            <p>
+                <label for="website">Website</label>
+                <input name="website" id="website" type="url" />
+            </p>
+            <p>
+                <label for="content">Content</label>
+                <textarea name="content" id="content" required></textarea>
+            </p>
+            <p><input type="submit" value="Post comment"/></p>
+        </form>
+         
+    </div>
+}
+
+
+
+
