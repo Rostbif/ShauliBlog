@@ -76,6 +76,7 @@ namespace ShauliBlogMvc.Controllers
             }
             ViewBag.PostID = new SelectList(db.Posts, "ID", "Title", comment.PostID);
             return View(comment);
+
         }
 
         // POST: Comments/Edit/5
@@ -92,7 +93,11 @@ namespace ShauliBlogMvc.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.PostID = new SelectList(db.Posts, "ID", "Title", comment.PostID);
-            return View(comment);
+            //return View(comment);
+
+            // Find the right post to open comments of that view
+            Post post = db.Posts.Find(comment.PostID);
+            return View(post);
         }
 
         // GET: Comments/Delete/5
@@ -118,7 +123,10 @@ namespace ShauliBlogMvc.Controllers
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+
+            // Redirect to comments 
+            return RedirectToAction("Index", "Posts");
         }
 
         protected override void Dispose(bool disposing)
