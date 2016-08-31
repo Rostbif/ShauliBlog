@@ -94,7 +94,7 @@
             }
             
         </section>
-        <form action="addComment" method="post">
+        <form action="Blog/addComment" method="post">
             <h3>Post a comment</h3>
 
             <input type="hidden" name="postId" value="@item.ID" />
@@ -116,7 +116,7 @@
             </p>
             <p>
                 <label for="content">Content</label>
-                <textarea name="content" id="content" required></textarea>
+                <textarea name="content" id="content" rows="5" cols="40" required></textarea>
             </p>
             <p><input type="submit" value="Post comment"/></p>
         </form>

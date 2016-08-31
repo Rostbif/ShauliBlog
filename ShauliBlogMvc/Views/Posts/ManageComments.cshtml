@@ -1,0 +1,57 @@
+﻿@model ShauliBlogMvc.Models.Post
+
+@{
+    ViewBag.Title = "ManageComments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ManageComments</h2>
+
+
+
+    <table class="table">
+    <tr>
+        <th>
+            <p>Title</p>
+        </th>
+        <th>
+            <p>Author Name</p>
+        </th>
+        <th>
+            <p>Website</p>
+        </th>
+        <th>
+            <p>Content</p>
+        </th>
+        <th>
+            <p>Actions</p>
+        </th>
+    </tr>
+    @foreach (var comment in Model.Comments)
+    {
+        <tr>
+            <th>
+                <p>@comment.Title</p>
+            </th>
+            <th>
+                <p>@comment.AuthorName</p>
+            </th>
+            <th>
+                <p>@comment.SiteOfAuthor</p>
+            </th>
+            <th>
+                <p>@comment.Content</p>
+            </th>
+            <th>
+                <p>
+                    <!--We use null to make the link to overload and go to a differrent controller-->
+                    @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.ID }, null) |
+                    @Html.ActionLink("Details", "Details", "Comments", new { id = comment.ID }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.ID }, null)
+                </p>
+            </th>
+        </tr>
+
+    }
+
+</table>

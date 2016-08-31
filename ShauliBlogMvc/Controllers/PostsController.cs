@@ -196,8 +196,14 @@ namespace ShauliBlogMvc.Controllers
             return RedirectToAction("Index");
             
         }
+        public ActionResult ManageComments(int id)
+        {
+            // Find the right post to open comments of that view
+            Post post = db.Posts.Find(id);
+            return View(post);
+        }
 
-        
+
 
         protected override void Dispose(bool disposing)
         {
