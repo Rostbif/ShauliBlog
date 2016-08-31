@@ -14,9 +14,4 @@ namespace ShauliBlogMvc.Models
         public string Sex { get; set; }
         public int Seniority { get; set; }
     }
-
-    public class FanDbContext : DbContext
-    {
-        public DbSet<Fan> Fans { get; set; }
-    }
 }

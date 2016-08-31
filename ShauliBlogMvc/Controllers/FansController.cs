@@ -7,12 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ShauliBlogMvc.Models;
+using ShauliBlogMvc.DAL;
 
 namespace ShauliBlogMvc.Controllers
 {
     public class FansController : Controller
     {
-        private FanDbContext db = new FanDbContext();
+        private BlogContext db = new BlogContext();
 
         // GET: Fans
         public ActionResult Index()

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShauliBlog", "ShauliBlog\ShauliBlog.csproj", "{F242E824-2A1D-4991-999C-447E26E593A0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShauliBlogMvc", "ShauliBlogMvc\ShauliBlogMvc.csproj", "{FF5ABFB6-37D4-402B-B28F-1DAE4A31A686}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F242E824-2A1D-4991-999C-447E26E593A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F242E824-2A1D-4991-999C-447E26E593A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F242E824-2A1D-4991-999C-447E26E593A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F242E824-2A1D-4991-999C-447E26E593A0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF5ABFB6-37D4-402B-B28F-1DAE4A31A686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF5ABFB6-37D4-402B-B28F-1DAE4A31A686}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF5ABFB6-37D4-402B-B28F-1DAE4A31A686}.Release|Any CPU.ActiveCfg = Release|Any CPU
