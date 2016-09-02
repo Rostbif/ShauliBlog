@@ -66,7 +66,7 @@ namespace ShauliBlogMvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,Author,SiteOfAuthor,PublishDate,Content")] Post post,
+        public ActionResult Create([Bind(Include = "Title,Author,SiteOfAuthor,Content")] Post post,
             HttpPostedFileBase image ,
             HttpPostedFileBase video
             )
@@ -98,6 +98,9 @@ namespace ShauliBlogMvc.Controllers
 
                         post.Video = videoFile;
                     }
+
+                    // set the publish date
+                    post.PublishDate = DateTime.Now;
 
                     db.Posts.Add(post);
                     db.SaveChanges();
@@ -132,12 +135,21 @@ namespace ShauliBlogMvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Author,SiteOfAuthor,PublishDate,Content")] Post post,
+        public ActionResult Edit([Bind(Include = "ID,Title,Author,SiteOfAuthor,Content")] Post post,
             HttpPostedFileBase image,
             HttpPostedFileBase video)
         {
             if (ModelState.IsValid)
             {
+                // get the relevant post
+                var postToUpdate = db.Posts.First(p => p.ID == post.ID);
+
+                // update the changes 
+                postToUpdate.Title = post.Title;
+                postToUpdate.Author = post.Author;
+                postToUpdate.SiteOfAuthor = post.SiteOfAuthor;
+                postToUpdate.Content = post.Content;
+
                 if (image != null && image.ContentLength > 0)
                 {
                     byte[] imageFile;
@@ -163,7 +175,7 @@ namespace ShauliBlogMvc.Controllers
                 }
 
 
-                db.Entry(post).State = EntityState.Modified;
+                db.Entry(postToUpdate).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

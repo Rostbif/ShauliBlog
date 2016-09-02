@@ -19,7 +19,7 @@ namespace ShauliBlogMvc.Controllers
             return View(db.Posts.ToList());
         }
 
-        public ActionResult addComment(int postId,string title, string authorName, string website, string content)
+        public ActionResult addComment(int postId,string title, string authorName, string website, string commentText)
         {
             var comment = new Comment()
             {
@@ -27,7 +27,7 @@ namespace ShauliBlogMvc.Controllers
                 Title = title,
                 AuthorName = authorName,
                 SiteOfAuthor = website,
-                Content = content
+                Content = commentText
             };
 
             db.Comments.Add(comment);

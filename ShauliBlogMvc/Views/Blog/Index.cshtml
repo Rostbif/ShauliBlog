@@ -94,7 +94,11 @@
             }
             
         </section>
-        <form action="Blog/addComment" method="post">
+        
+
+@using (Html.BeginForm("addComment", "Blog", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
             <h3>Post a comment</h3>
 
             <input type="hidden" name="postId" value="@item.ID" />
@@ -109,17 +113,18 @@
                 <label for="authorName">Author Name</label>
                 <input name="authorName" id="authorName" type="text" required />
             </p>
-            
+
             <p>
                 <label for="website">Website</label>
                 <input name="website" id="website" type="url" />
             </p>
             <p>
-                <label for="content">Content</label>
-                <textarea name="content" id="content" rows="5" cols="40" required></textarea>
+                <label for="commentText">Comment Text</label>
+                <textarea name="commentText" id="commentText" rows="5" cols="40" required></textarea>
             </p>
             <p><input type="submit" value="Post comment"/></p>
-        </form>
+}
+        
          
     </div>
 }
