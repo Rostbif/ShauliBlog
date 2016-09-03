@@ -67,8 +67,7 @@
 }
 
 <div>
-    <!--Html.ActionLink("Back to List", "Index")-->
-    @Html.ActionLink("Index", "Index", "Posts", new { id = Model.PostID }, null)
+    @Html.ActionLink("Back to List", "ManageComments", "Posts", new { id = Model.PostID }, null)
 </div>
 
 @section Scripts {
