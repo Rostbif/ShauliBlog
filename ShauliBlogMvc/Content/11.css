@@ -283,8 +283,6 @@ aside {
 
 .blogPost video {
     margin: 12px 0;
-    width: 100%;
-    height: auto;
     -webkit-box-shadow: 3px 3px 7px #777;
 }
 

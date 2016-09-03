@@ -56,5 +56,6 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) | 
        <!--Html.ActionLink("Back to List", "Index")-->
-    @Html.ActionLink("Back to List", "Index", "Posts", new { id = Model.PostID }, null)
+    @Html.ActionLink("Back to List", "ManageComments", "Posts", new { id = Model.PostID }, null)
+
 </p>

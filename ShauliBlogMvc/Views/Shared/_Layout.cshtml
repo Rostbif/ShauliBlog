@@ -9,8 +9,10 @@
         // check the BundleConfig.cs to see which files it refer
     } 
     @Styles.Render("~/Content/css")
-
     @Scripts.Render("~/bundles/modernizr")
+
+    @*for local css*@
+    @RenderSection("css", required: false)
 </head>
 <body>
     <!-- Header -->
@@ -123,6 +125,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    
 
 </body>
 </html>

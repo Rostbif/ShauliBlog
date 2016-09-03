@@ -54,7 +54,9 @@
                         {
                             string imageBase64 = Convert.ToBase64String(item.Image);
                             string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
-                            <img src="@imageSrc" width="100" height="100" alt="Image" />
+                            <div>
+                                <img src="@imageSrc" width="100" height="100" alt="Image" />
+                            </div>
                         }
 
                     }
@@ -66,11 +68,13 @@
                         {
                             string videoBase64 = Convert.ToBase64String(item.Video);
                             string videoSrc = string.Format("data:image/gif;base64,{0}", videoBase64);
-                            <video width="100" height="100" alt="Image" controls>
-                                <source src="@videoSrc" type="video/mp4" />
-                                <source src="@videoSrc" type="video/ogg" />
-                                Your browser doesnt support the video tag of html5
-                            </video>
+                            <div>
+                                <video width="100" height="100" alt="Image" controls>
+                                    <source src="@videoSrc" type="video/mp4" />
+                                    <source src="@videoSrc" type="video/ogg" />
+                                    Your browser doesnt support the video tag of html5
+                                </video>
+                            </div>
                         }
                     }
 
@@ -94,7 +98,11 @@
             }
             
         </section>
-        <form action="Blog/addComment" method="post">
+        
+
+@using (Html.BeginForm("addComment", "Blog", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
             <h3>Post a comment</h3>
 
             <input type="hidden" name="postId" value="@item.ID" />
@@ -109,17 +117,18 @@
                 <label for="authorName">Author Name</label>
                 <input name="authorName" id="authorName" type="text" required />
             </p>
-            
+
             <p>
                 <label for="website">Website</label>
                 <input name="website" id="website" type="url" />
             </p>
             <p>
-                <label for="content">Content</label>
-                <textarea name="content" id="content" rows="5" cols="40" required></textarea>
+                <label for="commentText">Comment Text</label>
+                <textarea name="commentText" id="commentText" rows="5" cols="40" required></textarea>
             </p>
             <p><input type="submit" value="Post comment"/></p>
-        </form>
+}
+        
          
     </div>
 }
