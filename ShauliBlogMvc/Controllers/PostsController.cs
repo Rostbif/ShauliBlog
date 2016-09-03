@@ -18,7 +18,7 @@ namespace ShauliBlogMvc.Controllers
         // GET: Posts
         public ActionResult Index()
         {
-            return View(db.Posts.ToList());
+            return View(db.Posts.OrderByDescending(p => p.PublishDate).ToList());
         }
 
         // GET: Posts/Details/5

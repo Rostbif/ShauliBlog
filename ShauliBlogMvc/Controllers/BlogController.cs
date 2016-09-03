@@ -16,7 +16,7 @@ namespace ShauliBlogMvc.Controllers
         public ActionResult Index()
         {
 
-            return View(db.Posts.ToList());
+            return View(db.Posts.OrderByDescending(p => p.PublishDate).ToList());
         }
 
         public ActionResult addComment(int postId,string title, string authorName, string website, string commentText)
