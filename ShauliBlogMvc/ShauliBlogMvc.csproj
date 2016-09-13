@@ -180,6 +180,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608241311147_InitialCreate.cs" />
+    <Compile Include="Migrations\201608241311147_InitialCreate.Designer.cs">
+      <DependentUpon>201608241311147_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609131528292_add-birthdate-fan.cs" />
+    <Compile Include="Migrations\201609131528292_add-birthdate-fan.Designer.cs">
+      <DependentUpon>201609131528292_add-birthdate-fan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Fan.cs" />
@@ -294,6 +303,14 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608241311147_InitialCreate.resx">
+      <DependentUpon>201608241311147_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609131528292_add-birthdate-fan.resx">
+      <DependentUpon>201609131528292_add-birthdate-fan.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

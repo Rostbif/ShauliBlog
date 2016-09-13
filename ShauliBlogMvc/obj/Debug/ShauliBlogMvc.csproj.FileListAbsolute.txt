@@ -67,3 +67,6 @@ C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\bin
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.dll
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.pdb
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.csprojResolveAssemblyReference.cache
+C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.Migrations.InitialCreate.resources
+C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.csproj.GenerateResource.Cache
+C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.Migrations.addbirthdatefan.resources
