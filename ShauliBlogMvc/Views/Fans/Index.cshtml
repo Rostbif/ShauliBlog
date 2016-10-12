@@ -12,8 +12,10 @@
 
     @using (Html.BeginForm())
     {
-        <p> Search Text : @Html.TextBox("SearchString")<br />
-        <input type="submit" value="filter" placeholder="search in name" /> </p>
+        <div>
+         Search Text : @Html.TextBox("SearchString", null, new {placeholder="search in first and last name ..." }) 
+        <input type="submit" value="filter"  /> 
+        </div>
     }
 </p>
 <table class="table">

@@ -218,6 +218,7 @@
     <Content Include="images\rss.png" />
     <Content Include="images\sidebar_background.png" />
     <Content Include="images\sidebar_section_background.png" />
+    <Content Include="Scripts\Blog\blog_index.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

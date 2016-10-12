@@ -19,7 +19,7 @@ namespace ShauliBlogMvc.Controllers
         public ActionResult Index(string searchString)
         {
             IQueryable<Fan> fans = db.Set<Fan>();
-
+            
             if (!string.IsNullOrEmpty(searchString))
             {
                 fans = fans.Where(f => f.FirstName.Contains(searchString) || f.LastName.Contains(searchString));
