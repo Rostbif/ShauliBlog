@@ -16,9 +16,16 @@ namespace ShauliBlogMvc.Controllers
         private BlogContext db = new BlogContext();
 
         // GET: Fans
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Fans.ToList());
+            IQueryable<Fan> fans = db.Set<Fan>();
+            
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                fans = fans.Where(f => f.FirstName.Contains(searchString) || f.LastName.Contains(searchString));
+            }
+
+            return View(fans.ToList());
         }
 
         // GET: Fans/Details/5
@@ -47,7 +54,7 @@ namespace ShauliBlogMvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Sex,Seniority")] Fan fan)
+        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Sex,Seniority,BirthDate,Address")] Fan fan)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +86,7 @@ namespace ShauliBlogMvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Sex,Seniority")] Fan fan)
+        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Sex,Seniority,BirthDate,Address")] Fan fan)
         {
             if (ModelState.IsValid)
             {

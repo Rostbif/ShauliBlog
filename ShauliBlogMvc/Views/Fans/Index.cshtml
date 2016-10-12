@@ -9,6 +9,14 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+
+    @using (Html.BeginForm())
+    {
+        <div>
+         Search Text : @Html.TextBox("SearchString", null, new {placeholder="search in first and last name ..." }) 
+        <input type="submit" value="search"  /> 
+        </div>
+    }
 </p>
 <table class="table">
     <tr>
@@ -23,6 +31,12 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Seniority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
         </th>
         <th></th>
     </tr>
@@ -40,6 +54,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Seniority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

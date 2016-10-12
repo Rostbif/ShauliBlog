@@ -13,10 +13,44 @@ namespace ShauliBlogMvc.Controllers
         private BlogContext db = new BlogContext();
 
         // GET: Blog
-        public ActionResult Index()
+        public ActionResult Index(string title, DateTime? publishDate, string authorName, string siteOfAuthor,
+            string wordsFromPost, int? minimalComments)
         {
+            IQueryable<Post> posts = db.Set<Post>();
 
-            return View(db.Posts.OrderByDescending(p => p.PublishDate).ToList());
+            if (!string.IsNullOrEmpty(title))
+            {
+                posts = posts.Where(p => p.Title == title);
+            }
+
+            if (publishDate != null)
+            {
+                posts = posts.Where(p => p.PublishDate == publishDate);
+            }
+
+            if (!string.IsNullOrEmpty(authorName))
+            {
+                posts = posts.Where(p => p.Author == authorName);
+            }
+
+            if (!string.IsNullOrEmpty(siteOfAuthor))
+            {
+                posts = posts.Where(p => p.SiteOfAuthor == authorName);
+            }
+
+            if (!string.IsNullOrEmpty(wordsFromPost))
+            {
+                posts = posts.Where(p => p.Content.Contains(wordsFromPost));
+            }
+
+            if (minimalComments.HasValue)
+            {
+                // join between posts and comments
+                posts = posts.Where(p => p.Comments.Count >= minimalComments);
+            }
+
+
+            return View(posts.OrderByDescending(p => p.PublishDate).ToList());
         }
 
         public ActionResult addComment(int postId,string title, string authorName, string website, string commentText)

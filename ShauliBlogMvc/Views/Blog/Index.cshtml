@@ -10,129 +10,128 @@
 
 <!-- Search -->
 <section>
-    <h1> Search	</h1>
     <div class="searchContainer">
-        <form class="searchBar">
+        @using (Html.BeginForm("Index", "Blog", FormMethod.Get, new { @class = "searchBar" }))
+        {
             <div class="searchBar">
-                <label> Date:</label>
-                <input type="date" placeholder="Choose date..." />
-                <label> Author Name: </label>
-                <input type="text" placeholder="insert author name" />
-                <label> Email: </label>
-                <input type="email" placeholder="insert your email..." />
-                <label> Words From post: </label>
-                <input type="text" placeholder="insert words from the post" />
-                <label> Minimal Comments: </label>
-                <input type="range" min="0" max="10" />
+                <div> Title:</div>
+                <input name="title" type="text" placeholder="insert title..." />
+                <div> Date:</div>
+                <input name="publishDate" type="date" placeholder="choose date..." />
+                <div> Author Name: </div>
+                <input name="authorName" type="text" placeholder="insert author name..." />
+                <div> Site Of Author: </div>
+                <input name="siteOfAuthor" type="url" placeholder="insert author site..." />
+                <div> Words From post: </div>
+                <input name="wordsFromPost" type="text" placeholder="insert words from the post..." />
+                <div> Minimal Comments: </div>
+                <input name="minimalComments" type="range" min="0" max="10" value="0" />
                 <input type="submit" value="search" />
             </div>
-        </form>
+        }
 
     </div>
 </section>
 
-@foreach (var item in Model)
+@if (!Model.Any())
 {
-    
+    <div> There was no posts to display </div>
+}
+else
+{
+    foreach (var item in Model)
+    {
         var commentNum = "comments" + item.ID;
-    
-
-    <div>
-
-        <section>
-            <article class="blogPost">
-                <header>
-                    <h2> @item.Title </h2>
-                    <p>Posted on <time datetime="@item.PublishDate">@item.PublishDate</time> by <a href="#">@item.Author</a> - <a href="#@commentNum">@item.Comments.Count comments</a></p>
-                </header>
-                <div>
-                    
-                    <p> @item.Content </p>
-
-                    @{
-                        if (item.Image != null)
-                        {
-                            string imageBase64 = Convert.ToBase64String(item.Image);
-                            string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
-                            <div>
-                                <img src="@imageSrc" width="100" height="100" alt="Image" />
-                            </div>
+        <div>
+            <section>
+                <article class="blogPost">
+                    <header>
+                        <h2> @item.Title </h2>
+                        <p>Posted on <time datetime="@item.PublishDate">@item.PublishDate</time> by <a href="#">@item.Author</a> - <a href="#@commentNum">@item.Comments.Count comments</a></p>
+                    </header>
+                    <div>
+                        <p> @item.Content </p>
+                        @{
+                            if (item.Image != null)
+                            {
+                                string imageBase64 = Convert.ToBase64String(item.Image);
+                                string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                                <div>
+                                    <img src="@imageSrc" width="100" height="100" alt="Image" />
+                                </div>
+                            }
                         }
-
-                    }
-
-                    
-
-                    @{
-                        if (item.Video != null)
-                        {
-                            string videoBase64 = Convert.ToBase64String(item.Video);
-                            string videoSrc = string.Format("data:image/gif;base64,{0}", videoBase64);
-                            <div>
-                                <video width="100" height="100" alt="Image" controls>
-                                    <source src="@videoSrc" type="video/mp4" />
-                                    <source src="@videoSrc" type="video/ogg" />
-                                    Your browser doesnt support the video tag of html5
-                                </video>
-                            </div>
+                        @{
+                            if (item.Video != null)
+                            {
+                                string videoBase64 = Convert.ToBase64String(item.Video);
+                                string videoSrc = string.Format("data:image/gif;base64,{0}", videoBase64);
+                                <div>
+                                    <video width="100" height="100" alt="Image" controls>
+                                        <source src="@videoSrc" type="video/mp4" />
+                                        <source src="@videoSrc" type="video/ogg" />
+                                        Your browser doesnt support the video tag of html5
+                                    </video>
+                                </div>
+                            }
                         }
-                    }
+                    </div>
+                </article>
+            </section>
 
-                </div>
-            </article>
-        </section>
-        
-
-        <section id="@commentNum">
-            <h3>Comments</h3>
-            @{
-                foreach (var comment in item.Comments)
+            <section id="@commentNum">
+                <h3>Comments</h3>
+                @if (!item.Comments.Any())
                 {
-                    <article>
-                        <header>
-                            <a href="@comment.SiteOfAuthor">@comment.AuthorName</a> 
-                        </header>
-                        <p> @comment.Content </p>
-                    </article>
+                    <div> there is no comments to display</div>
                 }
+                else
+                {
+                    <ol>
+                        @foreach (var comment in item.Comments)
+                        {
+                            <li>
+                                <div>
+                                    <a href="@comment.SiteOfAuthor">@comment.AuthorName</a>
+                                </div>
+                                <p> @comment.Content </p>
+                            </li>
+                        }
+                    </ol>
+                }
+            </section>
+
+            @using (Html.BeginForm("addComment", "Blog", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <h3 class="new-comment-title">Post new comment</h3>
+                <br />
+                <input type="hidden" name="postId" value="@item.ID" />
+                <p>
+                    <label for="Title">Title</label>
+                    <input name="title" id="title" type="text" required />
+                </p>
+                <p>
+                    <label for="authorName">Author Name</label>
+                    <input name="authorName" id="authorName" type="text" required />
+                </p>
+                <p>
+                    <label for="website">Website</label>
+                    <input name="website" id="website" type="url" />
+                </p>
+                <p>
+                    <label for="commentText">Comment Text</label>
+                    <textarea name="commentText" id="commentText" rows="5" cols="40" required></textarea>
+                </p>
+                <p><input type="submit" value="Post comment" /></p>
             }
-            
-        </section>
-        
+            <hr />
+        </div>
+                                }
+                            }
 
-@using (Html.BeginForm("addComment", "Blog", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-            <h3>Post a comment</h3>
-
-            <input type="hidden" name="postId" value="@item.ID" />
+@section css    {
+<link href="@Url.Content("~/Content/Blog/blog_index.css")" rel="stylesheet" />
 
 
-            <p>
-                <label for="Title">Title</label>
-                <input name="title" id="title" type="text" required />
-            </p>
-
-            <p>
-                <label for="authorName">Author Name</label>
-                <input name="authorName" id="authorName" type="text" required />
-            </p>
-
-            <p>
-                <label for="website">Website</label>
-                <input name="website" id="website" type="url" />
-            </p>
-            <p>
-                <label for="commentText">Comment Text</label>
-                <textarea name="commentText" id="commentText" rows="5" cols="40" required></textarea>
-            </p>
-            <p><input type="submit" value="Post comment"/></p>
 }
-        
-         
-    </div>
-}
-
-
-
-
