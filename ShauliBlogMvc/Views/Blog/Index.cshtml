@@ -10,22 +10,22 @@
 
 <!-- Search -->
 <section>
-    <h1> Search	</h1>
-
     <div class="searchContainer">
         @using (Html.BeginForm("Index", "Blog", FormMethod.Get, new { @class = "searchBar" }))
         {
             <div class="searchBar">
-                <label> Date:</label>
-                <input name="publishDate" type="date" placeholder="Choose date..." />
-                <label> Author Name: </label>
+                <div> Title:</div>
+                <input name="title" type="text" placeholder="insert title..." />
+                <div> Date:</div>
+                <input name="publishDate" type="date" placeholder="choose date..." />
+                <div> Author Name: </div>
                 <input name="authorName" type="text" placeholder="insert author name..." />
-                <label> Site Of Author: </label>
+                <div> Site Of Author: </div>
                 <input name="siteOfAuthor" type="url" placeholder="insert author site..." />
-                <label> Words From post: </label>
+                <div> Words From post: </div>
                 <input name="wordsFromPost" type="text" placeholder="insert words from the post..." />
-                <label> Minimal Comments: </label>
-                <input name="minimalComments" type="range" min="0" max="10" />
+                <div> Minimal Comments: </div>
+                <input name="minimalComments" type="range" min="0" max="10" value="0" />
                 <input type="submit" value="search" />
             </div>
         }
@@ -35,7 +35,7 @@
 
 @if (!Model.Any())
 {
-    <div> There was no results </div>
+    <div> There was no posts to display </div>
 }
 else
 {
@@ -81,23 +81,31 @@ else
 
             <section id="@commentNum">
                 <h3>Comments</h3>
-                @{
-                    foreach (var comment in item.Comments)
-                    {
-                        <article>
-                            <header>
-                                <a href="@comment.SiteOfAuthor">@comment.AuthorName</a>
-                            </header>
-                            <p> @comment.Content </p>
-                        </article>
-                    }
+                @if (!item.Comments.Any())
+                {
+                    <div> there is no comments to display</div>
+                }
+                else
+                {
+                    <ol>
+                        @foreach (var comment in item.Comments)
+                        {
+                            <li>
+                                <div>
+                                    <a href="@comment.SiteOfAuthor">@comment.AuthorName</a>
+                                </div>
+                                <p> @comment.Content </p>
+                            </li>
+                        }
+                    </ol>
                 }
             </section>
 
             @using (Html.BeginForm("addComment", "Blog", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
-                <h3>Post a comment</h3>
+                <h3 class="new-comment-title">Post new comment</h3>
+                <br />
                 <input type="hidden" name="postId" value="@item.ID" />
                 <p>
                     <label for="Title">Title</label>
@@ -117,6 +125,13 @@ else
                 </p>
                 <p><input type="submit" value="Post comment" /></p>
             }
+            <hr />
         </div>
-    }
- }
+                                }
+                            }
+
+@section css    {
+<link href="@Url.Content("~/Content/Blog/blog_index.css")" rel="stylesheet" />
+
+
+}

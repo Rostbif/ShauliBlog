@@ -13,10 +13,15 @@ namespace ShauliBlogMvc.Controllers
         private BlogContext db = new BlogContext();
 
         // GET: Blog
-        public ActionResult Index(DateTime? publishDate, string authorName, string siteOfAuthor,
+        public ActionResult Index(string title, DateTime? publishDate, string authorName, string siteOfAuthor,
             string wordsFromPost, int? minimalComments)
         {
             IQueryable<Post> posts = db.Set<Post>();
+
+            if (!string.IsNullOrEmpty(title))
+            {
+                posts = posts.Where(p => p.Title == title);
+            }
 
             if (publishDate != null)
             {

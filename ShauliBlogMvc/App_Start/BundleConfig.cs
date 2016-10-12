@@ -25,7 +25,7 @@ namespace ShauliBlogMvc
 
             // this is config which files will be load when we ask /content/css
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      //"~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/11.css"));
         }
