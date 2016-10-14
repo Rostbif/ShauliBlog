@@ -59,8 +59,8 @@ namespace ShauliBlogMvc.Controllers
             {
                 PostID = postId,
                 Title = title,
-                AuthorName = authorName,
-                SiteOfAuthor = website,
+                //AuthorName = authorName,
+                //SiteOfAuthor = website,
                 Content = commentText
             };
 

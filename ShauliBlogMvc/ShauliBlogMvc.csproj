@@ -188,6 +188,10 @@
     <Compile Include="Migrations\201609131528292_add-birthdate-fan.Designer.cs">
       <DependentUpon>201609131528292_add-birthdate-fan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610141012280_change-comment-and-fan2.cs" />
+    <Compile Include="Migrations\201610141012280_change-comment-and-fan2.Designer.cs">
+      <DependentUpon>201610141012280_change-comment-and-fan2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -312,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609131528292_add-birthdate-fan.resx">
       <DependentUpon>201609131528292_add-birthdate-fan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610141012280_change-comment-and-fan2.resx">
+      <DependentUpon>201610141012280_change-comment-and-fan2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

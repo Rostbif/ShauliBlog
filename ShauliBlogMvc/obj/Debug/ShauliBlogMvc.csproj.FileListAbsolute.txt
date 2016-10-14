@@ -70,3 +70,4 @@ C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.Migrations.InitialCreate.resources
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.csproj.GenerateResource.Cache
 C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.Migrations.addbirthdatefan.resources
+C:\Users\Ofir\documents\visual studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.Migrations.changecommentandfan2.resources
