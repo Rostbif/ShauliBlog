@@ -10,8 +10,7 @@ namespace ShauliBlogMvc.Models
         public int ID { get; set; }
         public int PostID { get; set; }
         public string Title { get; set; }
-        public string AuthorName { get; set; }
-        public string SiteOfAuthor { get; set; }
+        public virtual Fan Author { get; set; }
         public string Content { get; set; }
         public virtual Post Post { get; set; }
     }
