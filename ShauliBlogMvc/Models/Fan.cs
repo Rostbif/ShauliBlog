@@ -15,5 +15,6 @@ namespace ShauliBlogMvc.Models
         public DateTime BirthDate { get; set; }
         public int Seniority { get; set; }
         public string Address { get; set; }
+        public string Site { get; set; }
     }
 }
