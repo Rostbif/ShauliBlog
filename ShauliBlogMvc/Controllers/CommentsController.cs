@@ -41,6 +41,7 @@ namespace ShauliBlogMvc.Controllers
         public ActionResult Create()
         {
             ViewBag.PostID = new SelectList(db.Posts, "ID", "Title");
+            ViewBag.Author = new SelectList(db.Fans, "ID", "FirstName");
             return View();
         }
 
@@ -59,6 +60,7 @@ namespace ShauliBlogMvc.Controllers
             }
 
             ViewBag.PostID = new SelectList(db.Posts, "ID", "Title", comment.PostID);
+            ViewBag.Author = new SelectList(db.Fans, "ID", "FirstName", comment.Author);
             return View(comment);
         }
 
@@ -75,6 +77,7 @@ namespace ShauliBlogMvc.Controllers
                 return HttpNotFound();
             }
             ViewBag.PostID = new SelectList(db.Posts, "ID", "Title", comment.PostID);
+            ViewBag.Author = new SelectList(db.Fans, "ID", "FirstName", comment.Author);
             return View(comment);
 
         }
@@ -93,6 +96,7 @@ namespace ShauliBlogMvc.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.PostID = new SelectList(db.Posts, "ID", "Title", comment.PostID);
+            ViewBag.Author = new SelectList(db.Fans, "ID", "FirstName", comment.Author);
             //return View(comment);
 
             // Find the right post to open comments of that view
