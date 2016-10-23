@@ -6,6 +6,15 @@
 }
 
 <h2>Posts</h2>
+@{
+    var user = Session["user"] as User;
+}
+
+@if (User != null)
+{ 
+   <h3>Welcome @user.Name</h3> 
+   @Html.ActionLink("Logout", "Logout", "Login")
+}
 
 <p>
     @Html.ActionLink("Add New Post", "Create")

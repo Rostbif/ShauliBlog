@@ -18,6 +18,12 @@ namespace ShauliBlogMvc.Controllers
         // GET: Posts
         public ActionResult Index()
         {
+            // Check if the admin needs to login before accessing this page
+            if(Session["user"] == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             return View(db.Posts.OrderByDescending(p => p.PublishDate).ToList());
         }
 
