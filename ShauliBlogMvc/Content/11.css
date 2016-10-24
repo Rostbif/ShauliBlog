@@ -485,3 +485,27 @@ footer {
     clear: both;
     display: block;
 }
+
+.aw-icon-3-t {
+                    background-image: url(http://vortex.accuweather.com/adc2010/images/icons-numbered/03-t.png);
+                }
+
+                .aw-icon-3-h {
+                    background-image: url(http://vortex.accuweather.com/adc2010/images/icons-numbered/03-h.png);
+                }
+
+                .aw-icon-3-s {
+                    background-image: url(http://vortex.accuweather.com/adc2010/images/icons-numbered/03-s.png);
+                }
+
+                .aw-icon-3-m {
+                    background-image: url(http://vortex.accuweather.com/adc2010/images/icons-numbered/03-m.png);
+                }
+
+                .aw-icon-3-l {
+                    background-image: url(http://vortex.accuweather.com/adc2010/images/icons-numbered/03-l.png);
+                }
+
+                .aw-icon-3-xl {
+                    background-image: url(http://vortex.accuweather.com/adc2010/images/icons-numbered/03-xl.png);
+                }

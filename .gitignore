@@ -52,3 +52,5 @@ bin/
 #Debug directory
 Debug/
 obj/
+ShauliBlogMvc/obj/Debug/ShauliBlogMvc.csproj.GenerateResource.Cache
+ShauliBlogMvc/obj/Debug/ShauliBlogMvc.dll
