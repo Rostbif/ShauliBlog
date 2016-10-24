@@ -18,11 +18,22 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <h1 class="header-title">Ha Blog Shel Shauli</h1>
-            <audio muted autoplay controls>
-                <source src="~/music/02 - Birds.mp3" type="audio/mp3" />
-                Your browser does not support the audio tag.
-            </audio>
+            <div><h1 class="header-title">Ha Blog Shel Shauli</h1></div>
+            <!-- weather -->
+            <div style="width:100px;height:100px">
+                <a href="http://www.accuweather.com/en/il/tel-aviv/215854/weather-forecast/215854" 
+                   class="aw-widget-legal">
+                </a>
+                <div id="awcc1477324979360" 
+                     class="aw-widget-current" 
+                     data-locationkey="215854" 
+                     data-unit="c" 
+                     data-language="en-us" 
+                     data-useip="false" 
+                     data-uid="awcc1477324979360"></div>
+                <script type="text/javascript" src="http://oap.accuweather.com/launch.js">
+                </script>
+            </div>
         </div>
     </header>
 
