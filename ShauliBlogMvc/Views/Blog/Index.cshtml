@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ShauliBlogMvc.Models.Post>
+﻿@model Tuple<List<Post>, List<Fan>>
+
+
 
 @{
     ViewBag.Title = "Blog";
@@ -33,13 +35,13 @@
     </div>
 </section>
 
-@if (!Model.Any())
+@if (!Model.Item1.Any())
 {
     <div> There was no posts to display </div>
 }
 else
 {
-    foreach (var item in Model)
+    foreach (var item in Model.Item1)
     {
         var commentNum = "comments" + item.ID;
         <div>
@@ -92,7 +94,7 @@ else
                         {
                             <li>
                                 <div>
-                                    <a href=""></a>
+                                    <a href="@comment.Author.Site">@comment.Author.FirstName</a>
                                 </div>
                                 <p> @comment.Content </p>
                             </li>
@@ -112,12 +114,15 @@ else
                     <input name="title" id="title" type="text" required />
                 </p>
                 <p>
-                    <label for="authorName">Author Name</label>
-                    <input name="authorName" id="authorName" type="text" required />
-                </p>
-                <p>
-                    <label for="website">Website</label>
-                    <input name="website" id="website" type="url" />
+                    <label for="authorID">Author Name</label>
+                    <select name="authorID">
+                        <option value="0" selected>Select Author...</option>
+                        @foreach (var author in Model.Item2)
+                        {
+                        <option value="@author.ID">@author.FirstName @author.LastName </option>
+
+                        }
+                    </select>
                 </p>
                 <p>
                     <label for="commentText">Comment Text</label>
@@ -131,7 +136,7 @@ else
                             }
 
 @section css    {
-<link href="@Url.Content("~/Content/Blog/blog_index.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Blog/blog_index.css")" rel="stylesheet" />
 
 
 }

@@ -48,3 +48,7 @@ Temporary Items
 
 #bin directory
 bin/
+
+#Debug directory
+Debug/
+obj/
