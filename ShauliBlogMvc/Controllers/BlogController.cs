@@ -17,6 +17,7 @@ namespace ShauliBlogMvc.Controllers
             string wordsFromPost, int? minimalComments)
         {
             IQueryable<Post> posts = db.Set<Post>();
+            IQueryable<Fan> fans = db.Set<Fan>();
 
             if (!string.IsNullOrEmpty(title))
             {
@@ -49,18 +50,20 @@ namespace ShauliBlogMvc.Controllers
                 posts = posts.Where(p => p.Comments.Count >= minimalComments);
             }
 
+            // Return a tuple -2 views in one model for displaying posts and fans.
+            var model = new Tuple<List<Post>, List<Fan>>(posts.OrderByDescending(p => p.PublishDate).ToList(), fans.ToList());
+            return View(model);
 
-            return View(posts.OrderByDescending(p => p.PublishDate).ToList());
         }
 
-        public ActionResult addComment(int postId,string title, string authorName, string website, string commentText)
+        public ActionResult addComment(int postId,string title, int authorID, string website, string commentText)
         {
+            Fan author = db.Fans.Find(authorID);
             var comment = new Comment()
             {
                 PostID = postId,
                 Title = title,
-                //AuthorName = authorName,
-                //SiteOfAuthor = website,
+                Author = author,
                 Content = commentText
             };
 

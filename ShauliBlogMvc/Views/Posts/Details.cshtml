@@ -105,8 +105,8 @@
                     <tr>
                         <td> @Html.DisplayFor(modelItem => item.ID) </td> 
                         <td> @Html.DisplayFor(modelItem => item.Title) </td> 
-                        <td> @Html.DisplayFor(modelItem => item.AuthorName) </td> 
-                        <td> @Html.DisplayFor(modelItem => item.SiteOfAuthor) </td> 
+                        <td> @Html.DisplayFor(modelItem => item.Author.FirstName) @Html.DisplayFor(modelItem => item.Author.LastName)</td> 
+                        <td> @Html.DisplayFor(modelItem => item.Author.Site) </td> 
                         <td> @Html.DisplayFor(modelItem => item.Content) </td> 
                     </tr>
                 }
