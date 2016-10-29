@@ -123,6 +123,26 @@ namespace ShauliBlogMvc.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// return which fan has comment the most
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult checkActivestFan()
+        {
+            // get the comments group by the author with count
+            // order by the count and then take the first .
+            var query = db.Comments.GroupBy(c => c.Author)
+                .Select(g => new { author = g.Key, count = g.Count() })
+                .OrderByDescending(d => d.count).FirstOrDefault();
+
+            // check for null value
+            // in addition we have to allow get for json return value otherwise mvc block it
+            if (query == null)
+                return Json("there was no result", JsonRequestBehavior.AllowGet);
+            else
+                return Json(query.author.FirstName, JsonRequestBehavior.AllowGet);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

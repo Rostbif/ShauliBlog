@@ -6,9 +6,24 @@
 }
 
 <h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
+    <button onclick="checkActivestFan()"> Check Activest Fan </button>
+    <span id="activestFan"></span>
+    <script>
+        function checkActivestFan() {
+            $.ajax({
+                url: '@Url.Action("CheckActivestFan", "Fans")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (res) {
+                    // insert the result to pre create span
+                    $("#activestFan").text(res);
+                }
+            });
+        }
+
+    </script>
 
     @using (Html.BeginForm())
     {
@@ -76,3 +91,9 @@
 }
 
 </table>
+
+@section Scripts {
+    
+    @Scripts.Render("~/Scripts/Fans/fans_index.js")
+
+}
