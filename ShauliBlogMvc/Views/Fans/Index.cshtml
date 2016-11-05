@@ -28,7 +28,8 @@
     @using (Html.BeginForm())
     {
         <div>
-         Search Text : @Html.TextBox("SearchString", null, new {placeholder="search in first and last name ..." }) 
+         Name : @Html.TextBox("name", null, new {placeholder="search in name ...", @class = "search-name" }) 
+         Address : @Html.TextBox("address", null, new { placeholder = "search in adress...", @class = "search-address" })
         <input type="submit" value="search"  /> 
         </div>
     }
@@ -96,4 +97,8 @@
     
     @Scripts.Render("~/Scripts/Fans/fans_index.js")
 
+}
+
+@section css    {
+    <link href="@Url.Content("~/Content/Fan/fan_index.css")" rel="stylesheet" />
 }

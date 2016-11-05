@@ -1,0 +1,7 @@
+﻿form input[type="submit"]{
+    margin-left : 0px;
+}
+
+form input[type="text"]{
+    width: 200px;
+}
