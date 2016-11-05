@@ -16,13 +16,18 @@ namespace ShauliBlogMvc.Controllers
         private BlogContext db = new BlogContext();
 
         // GET: Fans
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string name, string address)
         {
             IQueryable<Fan> fans = db.Set<Fan>();
             
-            if (!string.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(name))
             {
-                fans = fans.Where(f => f.FirstName.Contains(searchString) || f.LastName.Contains(searchString));
+                fans = fans.Where(f => f.FirstName.Contains(name) || f.LastName.Contains(name));
+            }
+
+            if (!string.IsNullOrEmpty(address))
+            {
+                fans = fans.Where(f => f.Address.Contains(address));
             }
 
             return View(fans.ToList());
