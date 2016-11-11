@@ -76,8 +76,8 @@ namespace ShauliBlogMvc.Controllers
             {
                 return HttpNotFound();
             }
-           // ViewBag.PostID = new SelectList(db.Posts, "ID", "Title", comment.PostID);
-            ViewBag.Author = new SelectList(db.Fans, "ID", "FirstName", comment.Author);
+
+            ViewBag.AuthorID = new SelectList(db.Fans, "ID", "FirstName", comment.AuthorID);
             return View(comment);
 
         }
@@ -87,21 +87,14 @@ namespace ShauliBlogMvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,PostID,Title,Author,Content")] Comment comment)
+        public ActionResult Edit([Bind(Include = "ID,PostID,Title,AuthorID,Content")] Comment comment)
         {
-
             if (ModelState.IsValid)
             {
                 db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
-            //ViewBag.PostID = new SelectList(db.Posts, "ID", "Title", comment.PostID);
-            ViewBag.Author = new SelectList(db.Fans, "ID", "FirstName", comment.Author);
-            //return View(comment);
-
-            // Find the right post to open comments of that view
-            Post post = db.Posts.Find(comment.PostID);
+            ViewBag.AuthorID = new SelectList(db.Fans, "ID", "FirstName", comment.AuthorID);
 
             return RedirectToAction("Index", "Posts");
         }

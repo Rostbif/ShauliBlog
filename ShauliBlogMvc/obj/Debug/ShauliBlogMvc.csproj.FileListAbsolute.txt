@@ -144,3 +144,4 @@ C:\Users\basement\Documents\Omer\Project\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.M
 C:\Users\basement\Documents\Omer\Project\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.csproj.GenerateResource.Cache
 C:\Users\basement\Documents\Omer\Project\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.dll
 C:\Users\basement\Documents\Omer\Project\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.pdb
+C:\Users\Ofir\Documents\Visual Studio 2015\Projects\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.Migrations.addauthoridcomment.resources
