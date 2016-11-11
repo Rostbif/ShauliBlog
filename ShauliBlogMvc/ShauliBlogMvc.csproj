@@ -194,6 +194,10 @@
     <Compile Include="Migrations\201610140927080_change-comment-and-fan.Designer.cs">
       <DependentUpon>201610140927080_change-comment-and-fan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611111245493_add-authorid-comment.cs" />
+    <Compile Include="Migrations\201611111245493_add-authorid-comment.Designer.cs">
+      <DependentUpon>201611111245493_add-authorid-comment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -327,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610140927080_change-comment-and-fan.resx">
       <DependentUpon>201610140927080_change-comment-and-fan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611111245493_add-authorid-comment.resx">
+      <DependentUpon>201611111245493_add-authorid-comment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
