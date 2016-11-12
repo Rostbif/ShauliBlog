@@ -229,6 +229,7 @@
     <Content Include="images\intro_shauli.png" />
     <Content Include="images\nav_background.png" />
     <Content Include="images\rss.png" />
+    <Content Include="images\ShauliPic.jpg" />
     <Content Include="images\sidebar_background.png" />
     <Content Include="images\sidebar_section_background.png" />
     <Content Include="Scripts\Blog\blog_index.js" />
@@ -310,6 +311,7 @@
     <Content Include="Views\Posts\ManageComments.cshtml" />
     <Content Include="Views\Facebook\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

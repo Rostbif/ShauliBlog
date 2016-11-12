@@ -7,8 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2> Blog </h2>
-
+<h3> Search for posts </h3>
 
 <!-- Search -->
 <section>
@@ -24,10 +23,10 @@
                 <input name="authorName" type="text" placeholder="insert author name..." />
                 <div> Site Of Author: </div>
                 <input name="siteOfAuthor" type="url" placeholder="insert author site..." />
-                <div> Words From post: </div>
+                <div> Words From Post: </div>
                 <input name="wordsFromPost" type="text" placeholder="insert words from the post..." />
                 <div> Minimal Comments: </div>
-                <input name="minimalComments" type="range" min="0" max="10" value="0" />
+                0<input name="minimalComments" type="range" min="0" max="10" value="0" />10
                 <input type="submit" value="search" />
             </div>
         }
@@ -37,7 +36,7 @@
 
 @if (!Model.Item1.Any())
 {
-    <div> There was no posts to display </div>
+    <div> There were no posts to display </div>
 }
 else
 {
