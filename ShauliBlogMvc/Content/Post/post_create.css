@@ -1,1 +1,34 @@
-﻿
+﻿table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    height: 50px;
+}
+td{
+    height: 40px;
+    vertical-align:central;
+    text-align-last:center;
+}
+
+#CreatePost
+{
+    margin-top: 20px;
+}
+
+#LogoutButton
+{
+    margin-top: 100px;
+}
+
+#EditComment {
+    margin-top: 20px;
+    margin-left: 0px;
+    background-size: auto;
+    
+}

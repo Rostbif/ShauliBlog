@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ManageComments</h2>
+<h2>Manage Comments</h2>
 
 
 
@@ -30,28 +30,32 @@
     @foreach (var comment in Model.Comments)
     {
         <tr>
-            <th>
+            <td>
                 <p>@comment.Title</p>
-            </th>
-            <th>
+            </td>
+            <td>
                 <p>@comment.Author.FirstName @comment.Author.LastName</p>
-            </th>
-            <th>
+            </td>
+            <td>
                 <p>@comment.Author.Site</p>
-            </th>
-            <th>
+            </td>
+            <td>
                 <p>@comment.Content</p>
-            </th>
-            <th>
+            </td>
+            <td>
                 <p>
                     <!--We use null to make the link to overload and go to a differrent controller-->
                     @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.ID }, null) |
                     @Html.ActionLink("Details", "Details", "Comments", new { id = comment.ID }, null) |
                     @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.ID }, null)
                 </p>
-            </th>
+            </td>
         </tr>
 
     }
 
 </table>
+
+@section css {
+    <link href="@Url.Content("~/Content/Post/post_create.css")" rel="stylesheet" />
+}

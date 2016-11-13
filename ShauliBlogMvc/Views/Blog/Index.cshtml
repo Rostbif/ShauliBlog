@@ -7,28 +7,64 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3> Search for posts </h3>
+<h3> Search posts </h3>
 
 <!-- Search -->
 <section>
     <div class="searchContainer">
         @using (Html.BeginForm("Index", "Blog", FormMethod.Get, new { @class = "searchBar" }))
         {
-            <div class="searchBar">
-                <div> Title:</div>
-                <input name="title" type="text" placeholder="insert title..." />
-                <div> Date:</div>
-                <input name="publishDate" type="date" placeholder="choose date..." />
-                <div> Author Name: </div>
-                <input name="authorName" type="text" placeholder="insert author name..." />
-                <div> Site Of Author: </div>
-                <input name="siteOfAuthor" type="url" placeholder="insert author site..." />
-                <div> Words From Post: </div>
-                <input name="wordsFromPost" type="text" placeholder="insert words from the post..." />
-                <div> Minimal Comments: </div>
-                0<input name="minimalComments" type="range" min="0" max="10" value="0" />10
-                <input type="submit" value="search" />
-            </div>
+            <table>
+                <tr>
+                    <td>
+                        Title:
+                    </td>
+                    <td>
+                        <input name="title" type="text" placeholder="insert title..." />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Date:
+                    </td>
+                    <td>
+                        <input name="publishDate" type="date" placeholder="choose date..." />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Author Name:
+                    </td>
+                    <td>
+                        <input name="authorName" type="text" placeholder="insert author name..." />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Site Of Author:
+                    </td>
+                    <td>
+                        <input name="siteOfAuthor" type="url" placeholder="insert author site..." />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Words From Post:
+                    </td>
+                    <td>
+                        <input name="wordsFromPost" type="text" placeholder="insert words from the post..." />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Minimal Comments:
+                    </td>
+                    <td>
+                        0 <input name="minimalComments" type="range" min="0" max="10" value="0" />10
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="search" />
         }
 
     </div>
@@ -36,7 +72,7 @@
 
 @if (!Model.Item1.Any())
 {
-    <div> There were no posts to display </div>
+    <div> No posts to display </div>
 }
 else
 {
@@ -63,7 +99,7 @@ else
                             }
                             else
                             {
-                                <div> <canvas class="canvas" width="100" height="100"> </canvas> </div>
+                                <div> <canvas class="canvas" width="100" height="100"> no image </canvas> </div>
                             }
                         }
                         @{
@@ -88,7 +124,7 @@ else
                 <h3>Comments</h3>
                 @if (!item.Comments.Any())
                 {
-                    <div> there is no comments to display</div>
+                    <div> no comments yet </div>
                 }
                 else
                 {
@@ -97,9 +133,9 @@ else
                         {
                             <li>
                                 <div>
-                                    <a href="@comment.Author.Site">@comment.Author.FirstName</a>
+                                    <a href="@comment.Author.Site">@comment.Author.FirstName @comment.Author.LastName</a>
                                 </div>
-                                <p> @comment.Content </p>
+                                <p> <u> @comment.Title:</u>  @comment.Content </p>
                             </li>
                         }
                     </ol>
@@ -129,7 +165,7 @@ else
                 </p>
                 <p>
                     <label for="commentText">Comment Text</label>
-                    <textarea name="commentText" id="commentText" rows="5" cols="40" required></textarea>
+                    <textarea name="commentText" id="commentText" rows="5" cols="40" required> </textarea>
                 </p>
                 <p><input type="submit" value="Post comment" /></p>
             }

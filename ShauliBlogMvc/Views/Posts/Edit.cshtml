@@ -7,94 +7,92 @@
 
 <h2>Edit</h2>
 
-
 @using (Html.BeginForm("Edit", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Post</h4>
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td>
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td>
                 @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SiteOfAuthor, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.SiteOfAuthor, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td>
                 @Html.EditorFor(model => model.SiteOfAuthor, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.SiteOfAuthor, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td>
                 @Html.TextAreaFor(model => model.Content, 5, 40, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            </td>
 
-       
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                @{
+                    if (Model.Image != null)
+                    {
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
-            @{
-                if (Model.Image != null)
-                {
-
-                    string imageBase64 = Convert.ToBase64String(Model.Image);
-                    string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
-                    <img src="@imageSrc" width="100" height="100" alt="Image" />
+                        string imageBase64 = Convert.ToBase64String(Model.Image);
+                        string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                        <img src="@imageSrc" width="100" height="100" alt="Image" />
+                    }
                 }
-            }
-            <div class="col-md-10">
-                <input type="file" id="image" name="image"  />
-            </div>
-        </div>
+            </td>
+            <td>
+                <input type="file" id="image" name="image" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @{
+                    if (Model.Video != null)
+                    {
 
-        @{
-            if (Model.Video != null)
-            {
-                
-                string videoBase64 = Convert.ToBase64String(Model.Video);
-                string videoSrc = string.Format("data:image/gif;base64,{0}", videoBase64);
-                <video width="100" height="100" alt="Image" controls>
-                    <source src="@videoSrc" type="video/mp4" />
-                    <source src="@videoSrc" type="video/ogg" />
-                    Your browser doesnt support the video tag of html5
-                </video>
-            }
-        }
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Video, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+                        string videoBase64 = Convert.ToBase64String(Model.Video);
+                        string videoSrc = string.Format("data:image/gif;base64,{0}", videoBase64);
+                        <video width="100" height="100" alt="Image" controls>
+                            <source src="@videoSrc" type="video/mp4" />
+                            <source src="@videoSrc" type="video/ogg" />
+                            Your browser doesnt support the video tag of html5
+                        </video>
+                    }
+                }
+                @Html.LabelFor(model => model.Video, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+            <td>
                 <input type="file" id="video" name="video" />
-            </div>
-        </div>
+            </td>
+        </tr>
+    </table>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+       <input type="submit" value="Save" class="btn btn-default" />
 }
 
 <div>

@@ -7,63 +7,54 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>Comment</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Post Title
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Post.Title)
-        </dd>
+    <h3> <u> Post: @Html.DisplayFor(model => model.Post.Title), Comment: @Html.DisplayFor(model => model.Title) </u> </h3>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
+<table>
+    <tr>
+        <td>
             @Html.DisplayNameFor(model => model.Author.FirstName)
-        </dt>
+        </td>
 
-        <dd>
+        <td>
             @Html.DisplayFor(model => model.Author.FirstName)
-        </dd>
-
-        <dt>
+        </td>
+    </tr>
+    <tr>
+        <td>
             @Html.DisplayNameFor(model => model.Author.LastName)
-        </dt>
+        </td>
 
-        <dd>
+        <td>
             @Html.DisplayFor(model => model.Author.LastName)
-        </dd>
-
-        <dt>
+        </td>
+    </tr>
+    <tr>
+        <td>
             @Html.DisplayNameFor(model => model.Author.Site)
-        </dt>
+        </td>
 
-        <dd>
+        <td>
             @Html.DisplayFor(model => model.Author.Site)
-        </dd>
-
-        <dt>
+        </td>
+    </tr>
+    <tr>
+        <td>
             @Html.DisplayNameFor(model => model.Content)
-        </dt>
+        </td>
 
-        <dd>
+        <td>
             @Html.DisplayFor(model => model.Content)
-        </dd>
+        </td>
+    </tr>
+</table>
 
-    </dl>
-</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) | 
        <!--Html.ActionLink("Back to List", "Index")-->
     @Html.ActionLink("Back to List", "ManageComments", "Posts", new { id = Model.PostID }, null)
-
 </p>
+
+@section css {
+    <link href="@Url.Content("~/Content/Post/post_create.css")" rel="stylesheet" />
+}

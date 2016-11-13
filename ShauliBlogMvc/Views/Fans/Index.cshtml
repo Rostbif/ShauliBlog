@@ -12,12 +12,13 @@
     @using (Html.BeginForm())
     {
         <div>
-         Name : @Html.TextBox("name", null, new {placeholder="search in name ...", @class = "search-name" }) 
+         Name : @Html.TextBox("name", null, new { placeholder = "search in name ...", @class = "search-name" }) 
          Address : @Html.TextBox("address", null, new { placeholder = "search in adress...", @class = "search-address" })
         <input type="submit" value="search"  /> 
         </div>
     }
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -46,7 +47,9 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
+
+    @foreach (var item in Model) {
+
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
@@ -70,12 +73,12 @@
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
         </td>
     </tr>
-}
+        }
 </table>
 
 <button id="Activest" onclick="checkActivestFan()"> Check who is the activest fan!</button>
