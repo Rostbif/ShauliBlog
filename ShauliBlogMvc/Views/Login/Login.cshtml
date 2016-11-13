@@ -7,12 +7,30 @@
 <h2>Login</h2>
 @using (Html.BeginForm())
 {
-    <div>@Html.Label("Username")</div>
-    <div>@Html.TextBox("name")</div>
-    <div>@Html.Label("Password")</div>
-    <div>@Html.Password("password")</div>
-    <div>@Html.ValidationSummary(true)</div>
-    <input type="submit" value="Login" />
+    <table>
+        <tr>
+            <td>
+                <div>@Html.Label("Username")</div>
+            </td>
+            <td>
+            <div>@Html.TextBox("name")</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <div>@Html.Label("Password")</div>
+            </td>
+            <td>
+                <div>@Html.Password("password")</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>@Html.ValidationSummary(true)</div>
+                <input type="submit" value="Login" />
+            </td>
+        </tr>
+    </table>
 
 }
 

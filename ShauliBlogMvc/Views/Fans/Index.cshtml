@@ -5,25 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Fan Club</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
-    <button onclick="checkActivestFan()"> Check Activest Fan </button>
-    <span id="activestFan"></span>
-    <script>
-        function checkActivestFan() {
-            $.ajax({
-                url: '@Url.Action("CheckActivestFan", "Fans")',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (res) {
-                    // insert the result to pre create span
-                    $("#activestFan").text(res);
-                }
-            });
-        }
-
-    </script>
+    @Html.ActionLink("Add A Fan", "Create")
 
     @using (Html.BeginForm())
     {
@@ -57,7 +41,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Address)
         </th>
-        <th></th>
+        <th>
+            Actions
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -90,8 +76,24 @@
         </td>
     </tr>
 }
-
 </table>
+
+<button id="Activest" onclick="checkActivestFan()"> Check who is the activest fan!</button>
+<span id="activestFan"></span>
+<script>
+        function checkActivestFan() {
+            $.ajax({
+                url: '@Url.Action("CheckActivestFan", "Fans")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (res) {
+                    // insert the result to pre create span
+                    $("#activestFan").text(res);
+                }
+            });
+        }
+
+</script>
 
 @section Scripts {
     
