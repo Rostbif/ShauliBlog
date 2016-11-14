@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace ShauliBlogMvc.Controllers
 {
@@ -16,7 +17,8 @@ namespace ShauliBlogMvc.Controllers
         public ActionResult Index(string title, DateTime? publishDate, string authorName, string siteOfAuthor,
             string wordsFromPost, int? minimalComments)
         {
-            IQueryable<Post> posts = db.Set<Post>();
+            // eager loading of the comments . uses join
+            IQueryable<Post> posts = db.Set<Post>().Include(p => p.Comments);
             IQueryable<Fan> fans = db.Set<Fan>();
 
             if (!string.IsNullOrEmpty(title))

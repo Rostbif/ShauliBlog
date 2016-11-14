@@ -211,7 +211,6 @@ C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\bin\Microsoft.Owin.Securi
 C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.csprojResolveAssemblyReference.cache
 C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.Migrations.InitialCreate.resources
 C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.Migrations.addbirthdatefan.resources
 C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.Migrations.changecommentandfan.resources
@@ -219,3 +218,4 @@ C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.M
 C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.csproj.GenerateResource.Cache
 C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.dll
 C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.pdb
+C:\Users\Avinoam\Source\Repos\ShauliBlog\ShauliBlogMvc\obj\Debug\ShauliBlogMvc.csprojResolveAssemblyReference.cache
