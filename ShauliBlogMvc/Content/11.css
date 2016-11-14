@@ -2,11 +2,16 @@
 =BASIC SETUP
 ------------------------------*/
 
+@font-face {
+    font-family: myFont;
+	src: url(Champagne_Limousines.ttf);
+}
+
 /* Makeshift CSS Reset */
 * {
     margin: 0;
     padding: 0;
-    /*font-family: 'Roboto', sans-serif;*/
+    font-family: myFont;
     /*box-sizing: border-box;*/
 }
 
@@ -61,7 +66,8 @@ nav {
     position: absolute;
     left: 0;
     width: 100%;
-    background: url("../images/nav_background.png");
+    /* replacing background photo with linear-gradiant */
+	background: linear-gradient(rgb(51, 51, 51), rgb(34, 34, 34));
     box-sizing: content-box;
 }
 
@@ -95,9 +101,9 @@ nav {
                     color: #fff;
                 }
 
-            nav ul li.selected a {
+            nav ul li.selected  a{
                 color: #fff;
-            }
+            }    
 
             nav ul li.subscribe a {
                 margin-left: 22px;
@@ -130,8 +136,7 @@ nav {
     position: relative;
     margin-top: 66px;
     padding: 44px;
-    /*background: #467612 url("images/intro_background.png") repeat-x;*/
-    background: linear-gradient(#a8f328, #467612);
+    background: linear-gradient(rgb(179, 221, 15), rgb(70, 118, 18)) repeat-x;
     /* Background-size not implemented yet */
     -webkit-background-size: 100%;
     -o-background-size: 100%;

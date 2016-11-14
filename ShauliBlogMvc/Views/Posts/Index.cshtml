@@ -5,20 +5,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Posts</h2>
 @{
     var user = Session["user"] as User;
 }
 
 @if (User != null)
 { 
-   <h3>Welcome @user.Name</h3> 
-   @Html.ActionLink("Logout", "Logout", "Login")
+   <h2>Welcome, @user.Name</h2> 
+
 }
 
-<p>
-    @Html.ActionLink("Add New Post", "Create")
-</p>
+<h3>All Posts</h3>
+
 <table class="table">
     <tr>
         <th>
@@ -27,7 +25,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Author)
         </th>
-        <th></th>
+        <th>
+            Actions
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -47,5 +47,16 @@
         </td>
     </tr>
 }
-
 </table>
+<p>
+    <input type="button" id="CreatePost" class="btn btn-info" value="Add New Post" onclick="location.href='@Url.Action("Create", "Posts")'" />
+
+</p>
+
+<input type="button" id="LogoutButton"  style="float: right;" class="btn btn-info" value="Logout" onclick="location.href='@Url.Action("Logout", "Login")'" />
+
+@section css    {
+    <link href="@Url.Content("~/Content/Post/post_create.css")" rel="stylesheet" />
+}
+
+

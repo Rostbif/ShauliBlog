@@ -1,39 +1,24 @@
 ﻿@model IEnumerable<ShauliBlogMvc.Models.Fan>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Fan Club";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Fan Club</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
-    <button onclick="checkActivestFan()"> Check Activest Fan </button>
-    <span id="activestFan"></span>
-    <script>
-        function checkActivestFan() {
-            $.ajax({
-                url: '@Url.Action("CheckActivestFan", "Fans")',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (res) {
-                    // insert the result to pre create span
-                    $("#activestFan").text(res);
-                }
-            });
-        }
-
-    </script>
+    @Html.ActionLink("Add A Fan", "Create")
 
     @using (Html.BeginForm())
     {
         <div>
-         Name : @Html.TextBox("name", null, new {placeholder="search in name ...", @class = "search-name" }) 
+         Name : @Html.TextBox("name", null, new { placeholder = "search in name ...", @class = "search-name" }) 
          Address : @Html.TextBox("address", null, new { placeholder = "search in adress...", @class = "search-address" })
         <input type="submit" value="search"  /> 
         </div>
     }
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -52,15 +37,16 @@
             @Html.DisplayNameFor(model => model.BirthDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Site)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Address)
         </th>
-        <th></th>
+        <th>
+            Actions
+        </th>
     </tr>
 
-@foreach (var item in Model) {
+
+    @foreach (var item in Model) {
+
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
@@ -78,26 +64,34 @@
             @Html.DisplayFor(modelItem => item.BirthDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Site)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
         </td>
     </tr>
-}
-
+        }
 </table>
 
-@section Scripts {
-    
-    @Scripts.Render("~/Scripts/Fans/fans_index.js")
+<button id="Activest" onclick="checkActivestFan()"> Check who is the activest fan!</button>
+<span id="activestFan"></span>
+<script>
+        function checkActivestFan() {
+            $.ajax({
+                url: '@Url.Action("CheckActivestFan", "Fans")',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (res) {
+                    // insert the result to pre create span
+                    $("#activestFan").text(res);
+                }
+            });
+        }
 
-}
+</script>
+
 
 @section css    {
     <link href="@Url.Content("~/Content/Fan/fan_index.css")" rel="stylesheet" />

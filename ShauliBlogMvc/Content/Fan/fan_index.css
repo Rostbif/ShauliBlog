@@ -5,3 +5,42 @@
 form input[type="text"]{
     width: 200px;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    height: 50px;
+}
+td{
+    height: 40px;
+    vertical-align:central;
+    text-align-last:center;
+}
+
+#Activest {
+    margin-left: 0px;
+    margin-top: 40px;
+    position:page;
+    
+}
+
+#back{
+    margin-left: 20px;
+}
+
+#activestFan{
+    text-align:center;
+    color:lightskyblue;
+    font-size:medium;
+}
+
+#try{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

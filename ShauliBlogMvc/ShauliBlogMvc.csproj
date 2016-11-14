@@ -164,19 +164,12 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
-    <Compile Include="Controllers\FacebookController.cs" />
     <Compile Include="Controllers\FansController.cs" />
-    <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="DAL\BlogContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,14 +192,8 @@
       <DependentUpon>201611111245493_add-authorid-comment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Fan.cs" />
-    <Compile Include="Models\File.cs" />
-    <Compile Include="Models\FileType.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,13 +216,14 @@
     <Content Include="images\intro_shauli.png" />
     <Content Include="images\nav_background.png" />
     <Content Include="images\rss.png" />
+    <Content Include="images\ShauliPic.jpg" />
     <Content Include="images\sidebar_background.png" />
     <Content Include="images\sidebar_section_background.png" />
     <Content Include="Scripts\Blog\blog_index.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Champagne_Limousines.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Fans\fans_index.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -259,31 +247,10 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout_oldi.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\HelloWorld\Index.cshtml" />
     <Content Include="Views\Movies\Create.cshtml" />
     <Content Include="Views\Movies\Delete.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
@@ -308,8 +275,9 @@
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
     <Content Include="Views\Posts\ManageComments.cshtml" />
-    <Content Include="Views\Facebook\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

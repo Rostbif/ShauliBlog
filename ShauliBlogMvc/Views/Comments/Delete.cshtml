@@ -7,60 +7,9 @@
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete comment: "@Html.DisplayFor(model => model.Title)" On Post: "@Html.DisplayFor(model => model.Post.Title)" ?</h3>
+
 <div>
-    <h4>Comment</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Post.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Post.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Author.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Author.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Author.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Author.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Author.Site)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Author.Site)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-    </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
