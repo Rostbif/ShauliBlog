@@ -8,53 +8,59 @@
 <h2>Manage Comments</h2>
 
 
+@if (Model.Comments.Any())
+{
+
 
     <table class="table">
-    <tr>
-        <th>
-            <p>Title</p>
-        </th>
-        <th>
-            <p>Author Name</p>
-        </th>
-        <th>
-            <p>Website</p>
-        </th>
-        <th>
-            <p>Content</p>
-        </th>
-        <th>
-            <p>Actions</p>
-        </th>
-    </tr>
-    @foreach (var comment in Model.Comments)
-    {
         <tr>
-            <td>
-                <p>@comment.Title</p>
-            </td>
-            <td>
-                <p>@comment.Author.FirstName @comment.Author.LastName</p>
-            </td>
-            <td>
-                <p>@comment.Author.Site</p>
-            </td>
-            <td>
-                <p>@comment.Content</p>
-            </td>
-            <td>
-                <p>
-                    <!--We use null to make the link to overload and go to a differrent controller-->
-                    @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.ID }, null) |
-                    @Html.ActionLink("Details", "Details", "Comments", new { id = comment.ID }, null) |
-                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.ID }, null)
-                </p>
-            </td>
+            <th>
+                <p>Title</p>
+            </th>
+            <th>
+                <p>Author Name</p>
+            </th>
+            <th>
+                <p>Content</p>
+            </th>
+            <th>
+                <p>Actions</p>
+            </th>
         </tr>
+        @foreach (var comment in Model.Comments)
+        {
+            <tr>
+                <td>
+                    <p>@comment.Title</p>
+                </td>
+                <td>
+                    <p>@comment.Author.FirstName @comment.Author.LastName</p>
+                </td>
+                <td>
+                    <p>@comment.Content</p>
+                </td>
+                <td>
+                    <p>
+                        <!--We use null to make the link to overload and go to a differrent controller-->
+                        @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.ID }, null) |
+                        @Html.ActionLink("Details", "Details", "Comments", new { id = comment.ID }, null) |
+                        @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.ID }, null)
+                    </p>
+                </td>
+            </tr>
 
-    }
+        }
 
-</table>
+    </table>
+
+}
+else
+{
+    <div> no comments to display </div>
+
+}
+
+@Html.ActionLink("Back to List", "Index")
 
 @section css {
     <link href="@Url.Content("~/Content/Post/post_create.css")" rel="stylesheet" />
